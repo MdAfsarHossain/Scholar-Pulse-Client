@@ -34,7 +34,7 @@ const Profile = () => {
 
             {/* Dynamic Title */}
             <Helmet>
-                <title>Scholar Plus | My Profile</title>
+                <title>Scholar Pulse | My Profile</title>
             </Helmet>
 
             {/* Profile Header */}
