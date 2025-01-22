@@ -1,0 +1,131 @@
+import { useQuery } from '@tanstack/react-query';
+import { Calendar } from 'react-date-range';
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+import { Helmet } from 'react-helmet-async';
+import { FaUserAlt } from 'react-icons/fa';
+import { FaUserGraduate } from "react-icons/fa6";
+import { IoPricetag } from "react-icons/io5";
+import { MdReviews } from "react-icons/md";
+import ApplicationsLineChart from '../../../components/Dashboard/Charts/ApplicationsLineCart';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+
+const AdminStatistics = () => {
+
+    const axiosSecure = useAxiosSecure();
+
+    const { data: adminStats = {} } = useQuery({
+        queryKey: ['adminStats'],
+        queryFn: async () => {
+            const { data } = await axiosSecure('/admin-statistics');
+            return data;
+        }
+    })
+
+    return (
+        <div>
+            <Helmet>
+                <title>Scholar Pulse | Admin Statistics</title>
+            </Helmet>
+
+            {/* Heading */}
+            <div className="flex flex-col items-center justify-center">
+                <h1 className='uppercase font-bold text-3xl md:text-4xl'>Admin <span className='text-[#0AB99D]'>Statistics</span></h1>
+                <div className="mt-1 h-[2px] bg-[#0AB99D] w-36"></div>
+            </div>
+            {/* End of Heading */}
+
+            <div>
+                <div className='mt-12 mb-20'>
+                    {/* small cards */}
+                    <div className='mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+
+                        {/* Total Scholarships */}
+                        <div className='relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md'>
+                            <div
+                                className={`bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center from-orange-600 to-orange-400 text-white shadow-orange-500/40`}
+                            >
+                                <IoPricetag className='w-6 h-6 text-white' />
+                            </div>
+                            <div className='p-4 text-right'>
+                                <p className='block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600'>
+                                    Total Scholarships
+                                </p>
+                                <h4 className='block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900'>
+                                    {adminStats?.totalScholarships}
+                                </h4>
+                            </div>
+                        </div>
+
+                        {/* Total Users */}
+                        <div className='relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md'>
+                            <div
+                                className={`bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center from-green-600 to-green-400 text-white shadow-green-500/40`}
+                            >
+                                <FaUserAlt className='w-6 h-6 text-white' />
+                            </div>
+                            <div className='p-4 text-right'>
+                                <p className='block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600'>
+                                    Total Users
+                                </p>
+                                <h4 className='block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900'>
+                                    {adminStats?.totalUsers}
+                                </h4>
+                            </div>
+                        </div>
+
+                        {/* Total Applicatios */}
+                        <div className='relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md'>
+                            <div
+                                className={`bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center from-blue-600 to-blue-400 text-white shadow-blue-500/40`}
+                            >
+                                <FaUserGraduate className='w-6 h-6 text-white' />
+                            </div>
+                            <div className='p-4 text-right'>
+                                <p className='block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600'>
+                                    Total Applications
+                                </p>
+                                <h4 className='block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900'>
+                                    {adminStats?.totalApplications}
+                                </h4>
+                            </div>
+                        </div>
+
+                        {/* Total Reviews */}
+                        <div className='relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md'>
+                            <div
+                                className={`bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center from-pink-600 to-pink-400 text-white shadow-pink-500/40`}
+                            >
+                                <MdReviews className='w-6 h-6 text-white' />
+                            </div>
+                            <div className='p-4 text-right'>
+                                <p className='block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600'>
+                                    Total Reviwes
+                                </p>
+                                <h4 className='block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900'>
+                                    {adminStats?.totalReviews}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='mb-4 grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3'>
+                        {/* Total Sales Graph */}
+                        <div className='relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md overflow-hidden xl:col-span-2'>
+                            {/* Render Chart Here */}
+                            <ApplicationsLineChart
+                                data={adminStats?.chartData}
+                            />
+                        </div>
+                        {/* Calender */}
+                        <div className='relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md overflow-hidden'>
+                            <Calendar color='#0AB99D' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default AdminStatistics;
