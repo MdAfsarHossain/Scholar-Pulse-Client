@@ -11,6 +11,7 @@ const AllScholarships = () => {
     const axiosSecure = useAxiosSecure();
     const [searchText, setSearchText] = useState("");
     const [selectedDegreeType, setSelectedDegreeType] = useState("");
+    const [sortType, setSortType] = useState("");
 
     // For Pagination
     const [itemsPerPage, setItemsPerPage] = useState(8);
@@ -35,7 +36,7 @@ const AllScholarships = () => {
         queryKey: ['allScholarShips', selectedDegreeType, currentPage, itemsPerPage],
         queryFn: async () => {
             const { data } = await axios.get(`${import.meta.env.VITE_API_URL
-                }/all-scholarships?filter=${selectedDegreeType}&search=${searchText}&page=${currentPage}&size=${itemsPerPage}`);
+                }/all-scholarships?filter=${selectedDegreeType}&search=${searchText}&page=${currentPage}&size=${itemsPerPage}&sort=${sortType}`);
             return data;
         }
     })
@@ -53,7 +54,9 @@ const AllScholarships = () => {
         };
 
         getTotalScholarShip();
-    }, [searchText, selectedDegreeType]);
+    }, [searchText, selectedDegreeType, sortType]);
+
+    
 
 
     const numberOfPages = Math.ceil(totalScholarShip / itemsPerPage);
@@ -67,7 +70,6 @@ const AllScholarships = () => {
     // Handle change event
     const handleChange = (event) => {
         setSelectedDegreeType(event.target.value);
-
     };
 
     const handleSearchBtn = async () => {
@@ -100,9 +102,11 @@ const AllScholarships = () => {
             {/* Search */}
             <div className="border-0 flex flex-row gap-5 justify-between mt-8 px-5 md:px-10">
 
-                <div className="flex-1 hidden lg:block text-white">
+                {/* <div className="flex-1 hidden lg:block text-white">
                     <p>.</p>
-                </div>
+                </div> */}
+
+                
 
                 <div className="flex-1 flex flex-row gap-5 justify-center">
                     <input
