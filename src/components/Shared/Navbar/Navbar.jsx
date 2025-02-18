@@ -71,6 +71,35 @@ const Navbar = () => {
                     All Scholarships
                 </NavLink>
             </li>
+            <li>
+                <NavLink
+                    to="/scholarships-blogs"
+                    className={({ isActive }) =>
+                        isActive
+                            ? "bg-[#0AB99D] text-white px-4 py-2 rounded-full font-bold"
+                            : `px-4 py-2 font-bold`
+                    }
+                >
+                    Scholarships Blogs
+                </NavLink>
+            </li>
+
+            {
+                user &&
+                <li>
+                    <NavLink
+                        to="/profile"
+                        className={({ isActive }) =>
+                            isActive
+                                ? "bg-[#0AB99D] text-white px-4 py-2 rounded-full font-bold"
+                                : `px-4 py-2 font-bold`
+                        }
+                    >
+                        Profile
+                    </NavLink>
+                </li>
+            }
+
             {
                 role === 'User' && <li>
                     <NavLink
