@@ -60,13 +60,12 @@ const AllScholarships = () => {
             setTotalScholarShip(data.count);
         };
 
-        useEffect(() => {
-            refetch();
-        }, [sortType])
-
         getTotalScholarShip();
     }, [searchText, selectedDegreeType, sortType]);
 
+    useEffect(() => {
+        refetch();
+    }, [sortType])
 
 
 
