@@ -16,11 +16,13 @@ import 'swiper/css/pagination';
 // import required modules
 import { Helmet } from 'react-helmet-async';
 import { FreeMode, Pagination } from 'swiper/modules';
+import useAuth from '../../hooks/useAuth';
 
 const ScholarshipDetails = () => {
 
     const { id } = useParams();
     const axiosSecure = useAxiosSecure();
+    const { user } = useAuth();
 
     const { data: scholarShipData, isLoading, refetch } = useQuery({
         queryKey: ['scholarShipData', id],
@@ -147,7 +149,8 @@ const ScholarshipDetails = () => {
                     to={`/checkout/${_id}`}
                 >
                     <button
-                        className="py-2 px-4 bg-[#0AB99D] text-white border-[#0AB99D] border-2 font-bold rounded-md mt-4 hover:bg-transparent transition-all hover:text-[#0AB99D]">
+                        disabled={!user}
+                        className="disabled:cursor-not-allowed py-2 px-4 bg-[#0AB99D] text-white border-[#0AB99D] border-2 font-bold rounded-md mt-4 hover:bg-transparent transition-all hover:text-[#0AB99D]">
                         Apply for Scholarship
                     </button>
                 </Link>
