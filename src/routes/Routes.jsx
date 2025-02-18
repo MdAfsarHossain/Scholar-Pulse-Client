@@ -16,11 +16,13 @@ import { default as Error, default as ErrorPage } from "../pages/ErrorPage/Error
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import ScholarshipBlogs from "../pages/ScholarshipBlogs/ScholarshipBlogs";
 import ScholarshipDetails from "../pages/ScholarshipDetails/ScholarshipDetails";
 import AdminModeratorRoute from "./AdminModeratorRoute";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
 import UserRoute from "./UserRoute";
+import ProfilePage from "../pages/ProfilePage/ProfilePage";
 
 const router = createBrowserRouter([
     {
@@ -45,9 +47,17 @@ const router = createBrowserRouter([
                 element: <AllScholarships />,
             },
             {
+                path: 'scholarships-blogs',
+                element: <ScholarshipBlogs />
+            },
+            {
                 path: 'scholarshipDetails/:id',
                 // element: <PrivateRoute><ScholarshipDetails /></PrivateRoute>
                 element: <ScholarshipDetails />
+            },
+            {
+                path: 'profile',
+                element: <PrivateRoute><ProfilePage /></PrivateRoute>
             },
             {
                 path: 'checkout/:id',
