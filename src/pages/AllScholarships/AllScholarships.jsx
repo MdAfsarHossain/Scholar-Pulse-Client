@@ -32,6 +32,13 @@ const AllScholarships = () => {
         "Masters",
     ]
 
+    // List of Sorting types
+    const sortingType = [
+        "ALL",
+        "ASC",
+        "DESC",
+    ]
+
     const { data: allScholarShips = [], isLoading, isError, refetch } = useQuery({
         queryKey: ['allScholarShips', selectedDegreeType, currentPage, itemsPerPage],
         queryFn: async () => {
@@ -56,7 +63,7 @@ const AllScholarships = () => {
         getTotalScholarShip();
     }, [searchText, selectedDegreeType, sortType]);
 
-    
+
 
 
     const numberOfPages = Math.ceil(totalScholarShip / itemsPerPage);
@@ -106,7 +113,7 @@ const AllScholarships = () => {
                     <p>.</p>
                 </div> */}
 
-                
+
 
                 <div className="flex-1 flex flex-row gap-5 justify-center">
                     <input
