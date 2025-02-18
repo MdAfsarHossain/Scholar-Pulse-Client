@@ -123,7 +123,32 @@ const AllScholarships = () => {
                     <p>.</p>
                 </div> */}
 
-
+                {/* Sorting By Price */}
+                <div className="flex-1 hidden lg:block">
+                    <div className="flex flex-row gap-3 justify-center items-center">
+                        <label htmlFor="artifactType" className="block mb-2 text-lg">
+                            Sort by Fees:
+                        </label>
+                        <div className="artifact-dropdown">
+                            <select
+                                id="artifacteType"
+                                value={sortType}
+                                onChange={handleChangeSortType}
+                                className="w-full p-2 border border-[#0AB99D] rounded-lg"
+                            >
+                                <option value="" disabled>
+                                    -- Choose Sorting --
+                                </option>
+                                {sortingType?.map((type, index) => (
+                                    <option
+                                        key={index} value={type}>
+                                        {type}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
+                </div>
 
                 <div className="flex-1 flex flex-row gap-5 justify-center">
                     <input
