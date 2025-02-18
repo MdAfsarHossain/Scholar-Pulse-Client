@@ -83,6 +83,12 @@ const AllScholarships = () => {
         setSelectedDegreeType(event.target.value);
     };
 
+    // Handle Sort Type
+    const handleChangeSortType = (event) => {
+        // console.log(event.target.value);
+        setSortType(event.target.value);
+    };
+
     const handleSearchBtn = async () => {
         refetch();
         // setSearchText("");
