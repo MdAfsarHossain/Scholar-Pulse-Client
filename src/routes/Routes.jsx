@@ -46,7 +46,8 @@ const router = createBrowserRouter([
             },
             {
                 path: 'scholarshipDetails/:id',
-                element: <PrivateRoute><ScholarshipDetails /></PrivateRoute>
+                // element: <PrivateRoute><ScholarshipDetails /></PrivateRoute>
+                element: <ScholarshipDetails />
             },
             {
                 path: 'checkout/:id',
