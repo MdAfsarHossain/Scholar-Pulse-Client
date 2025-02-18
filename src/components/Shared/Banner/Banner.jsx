@@ -28,7 +28,7 @@ const Banner = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div className="w-full h-[380px] lg:h-[460px] rounded-lg hero bg-[url(https://i.ibb.co.com/qBpH5Wq/ETH-Zurich.jpg)] bg-cover bg-no-repeat bg-center">
+                    <div className="w-full h-[380px] lg:h-[460px] rounded-lg hero bg-[url(https://i.ibb.co.com/LDdM2mnb/ETH-Zurich.jpg)] bg-cover bg-no-repeat bg-center">
                         <div className="hero-overlay bg-opacity-65 rounded-lg">
                             <div className="px-12 lg:px-16 border-0 md:w-3/4 lg:w-1/2 flex flex-col gap-5 justify-center items-start border-black h-full rounded-lg">
                                 <h1 className="font-bold uppercase text-4xl md:text-5xl lg:text-7xl text-white">
@@ -48,7 +48,7 @@ const Banner = () => {
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <div className="w-full h-[380px] lg:h-[460px] rounded-lg hero bg-[url(https://i.ibb.co.com/DkDfCfZ/Imperial-College-London.png)] bg-cover bg-no-repeat bg-center">
+                    <div className="w-full h-[380px] lg:h-[460px] rounded-lg hero bg-[url(https://i.ibb.co.com/5WMgpBBm/Imperial-College-London.png)] bg-cover bg-no-repeat bg-center">
                         <div className="hero-overlay bg-opacity-65 rounded-lg">
                             <div className="px-12 lg:px-16 border-0 md:w-3/4 lg:w-3/5 flex flex-col gap-5 justify-center items-start border-black h-full rounded-lg">
                                 <h1 className="font-bold uppercase text-4xl md:text-5xl lg:text-7xl text-white">
@@ -68,7 +68,7 @@ const Banner = () => {
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <div className="w-full h-[380px] lg:h-[460px] rounded-lg hero bg-[url(https://i.ibb.co.com/2jfkzP3/Stanford-University.jpg)] bg-cover bg-no-repeat bg-center">
+                    <div className="w-full h-[380px] lg:h-[460px] rounded-lg hero bg-[url(https://i.ibb.co.com/SwwPgLF2/Stanford-University.jpg)] bg-cover bg-no-repeat bg-center">
                         <div className="hero-overlay bg-opacity-65 rounded-lg">
                             <div className="px-12 lg:px-16 border-0 md:w-3/4 lg:w-3/5 flex flex-col gap-5 justify-center items-start border-black h-full rounded-lg">
                                 <h1 className="font-bold uppercase text-4xl md:text-5xl lg:text-7xl text-white">
@@ -93,6 +93,6 @@ const Banner = () => {
 
 export default Banner;
 
-// https://i.ibb.co.com/qBpH5Wq/ETH-Zurich.jpg
-// https://i.ibb.co.com/DkDfCfZ/Imperial-College-London.png
-// https://i.ibb.co.com/2jfkzP3/Stanford-University.jpg
+// https://i.ibb.co.com/LDdM2mnb/ETH-Zurich.jpg
+// https://i.ibb.co.com/SwwPgLF2/Stanford-University.jpg
+// https://i.ibb.co.com/5WMgpBBm/Imperial-College-London.png
