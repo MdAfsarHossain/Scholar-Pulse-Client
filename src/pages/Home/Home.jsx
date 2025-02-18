@@ -4,7 +4,6 @@ import BenefitsOfScholarPulse from "../../components/BenefitsOfScholarPulse/Bene
 import NewLetter from "../../components/NewsLetter/NewLetter";
 import ScholarshipStats from "../../components/ScholarshipStats/ScholarshipStats";
 import Banner from "../../components/Shared/Banner/Banner";
-import Test from "../../components/Test/Test";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import TopScholarships from "../../components/TopScholarships/TopScholarships";
 
